@@ -15,20 +15,18 @@ function getWordsByFrequecy(corpus, input_string){
 }
 
 function cleanInput(string){
-    var new_str = string + " "
+    var new_str = " " + string + " "
     new_str = new_str.toLowerCase()
     new_str = new_str.replace(/-\n/g, "")
-    new_str = new_str.replace(/\n-/g, " ")
-    new_str = new_str.replace(/\n/g, " ")
+    new_str = new_str.replace(/(\n-|\n)/g, " ")
     new_str = new_str.replace(/can('|‘|’)t[^\p{L}]/gu, "can not ")
     new_str = new_str.replace(/i('|‘|’)m[^\p{L}]/gu, " i am ")
     new_str = new_str.replace(/n('|‘|’)t[^\p{L}]/gu, " not ")
     new_str = new_str.replace(/('|‘|’)t[^\p{L}]/gu, " not ")
     new_str = new_str.replace(/('|‘|’)(ll|re|ve|d|s)[^\p{L}]/gu, " ")
     new_str = new_str.replace(/[^\p{L} -]/gu, " ") // remover caracteres que no son letras
-    new_str = new_str.replace(/ -/g," ")
+    new_str = new_str.replace(/( -|- )/g," ")
     new_str = new_str.replace(/  +/g," ")
-
     new_str = new_str.trim()
     var array = new_str.split(" ")
     array = [...new Set(array)] // remover palabras repetidas
