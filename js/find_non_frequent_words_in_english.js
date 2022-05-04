@@ -10,23 +10,8 @@ function orderedWords(){
 
 function getWordsByFrequecy(corpus, input_string){
     var input_words_list = cleanInput(input_string)
-
-    var pares = []; var word = ""
-    for(var i = 0; i < input_words_list.length; i++){
-        word = input_words_list[i]
-        pares.push([word, corpus.indexOf(word)])
-    }
-
-    pares.sort(function(first, second) {
-        return second[1] - first[1];
-    });
-
-    sorted_words = []
-    for(var i=0; i<pares.length; i++){
-        sorted_words.push(pares[i][0])
-    }
-
-    return sorted_words
+    var pairs = pairsWordIndex(corpus, input_words_list)
+    return sortWords(pairs)
 }
 
 function cleanInput(string){
@@ -44,4 +29,27 @@ function cleanInput(string){
     var array = new_str.split(" ")
     array = [...new Set(array)] // remover palabras repetidas
     return array
+}
+
+function pairsWordIndex(corpus, input_words_list){
+    var pairs = []; var word = ""; var indice;
+    for(var i = 0; i < input_words_list.length; i++){
+        word = input_words_list[i]
+        indice = corpus.indexOf(word)
+        if (indice > -1){
+            pairs.push([word, corpus.indexOf(word)])
+        }
+    }
+    return pairs
+}
+
+function sortWords(pairs){
+    pairs.sort(function(first, second) {
+        return second[1] - first[1];
+    });
+    sorted_words = []
+    for(var i=0; i<pairs.length; i++){
+        sorted_words.push(pairs[i][0])
+    }
+    return sorted_words
 }
