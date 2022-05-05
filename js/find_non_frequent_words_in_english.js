@@ -28,9 +28,9 @@ function cleanInput(string){
     new_str = new_str.replace(/( -|- )/g," ")
     new_str = new_str.replace(/  +/g," ")
     new_str = new_str.trim()
-    var array = new_str.split(" ")
-    array = [...new Set(array)] // remover palabras repetidas
-    return array
+    var output_array = new_str.split(" ")
+    output_array = [...new Set(output_array)] // remover palabras repetidas
+    return output_array
 }
 
 function pairsWordIndex(corpus, input_words_list){
