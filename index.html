@@ -10,8 +10,8 @@
         rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
         crossorigin="anonymous"
     >
-    <script type="text/javascript" src="./js/add_item_to_list.js" async></script>
-    <title>Hello, this is a test!</title>
+   
+    <title>Non frequent words</title>
   </head>
   <body class="bg-dark">
       
@@ -19,27 +19,34 @@
     <div class="container mt-50">
       <form>
           <div class="form-group">
-            <div class="card text-white bg-dark mb-3 border-0 border-secondary" style="max-width: 18rem;">
+            <div class="card text-white bg-dark mb-3 border-0 border-secondary">
               <div class="card-body">
-                <h5 class="card-title">Add text</h5>
+                <h1 class="display-5 text-center">Extract a list by frequency</h1>
+                <p class="text-secondary text-center">Extract a list of words from an English text ordered from the least frequent to the most frequent</p>
               </div>
             </div>
-            <textarea class="form-control text-white bg-dark shadow-lg border-0 rounded" id="inputText" rows="3"></textarea>
+            <textarea class="form-control text-white bg-dark shadow-lg border-0 rounded" id="inputText" rows="10">Really NormaL text: I'm. (¿when, you)1984, 6-12 Worn-out 100%win!! $1500×3÷  1
+[drink] don't I'd, || acknow-
+ledgement she'LL|| 'isolation_awareness@mail?'" CAN't "'the best' it's </table> bre-
+ak 30° 5 {miles)³ =  miles² × miles <<parallel>> - car^8 there-- my mudguard; pingüino
+-first[10]. ["~tile", "widespread",alligator.yeast +wheel+ to ankle clarion
+-{second}
+  -three \sqrt{12}
+    -"FOUR"</textarea>
           </div>
       </form>          
       <div class="container">
         <button type="submit" class="btn btn-secondary mb-2 mt-5" id="searchButton">Search words</button>
-        <div class="list-group" id="listContainer">
-          <ol id="wordsList">
-            <li>Tea</li>
-            <li>Tea</li>
-            <li>Tea</li>
-          </ol>
+        <div class="list-group text-white" id="listContainer" >
+          
         </div>
       </div>   
     </div>
 
-  
+    <script type="text/javascript" src="./js/corpus_400k_words.js" async></script>
+    <script type="text/javascript" src="./js/find_non_frequent_words_in_english.js" async></script>
+    <script type="text/javascript" src="./js/add_item_to_list.js" async></script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" 
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" 
         crossorigin="anonymous">
