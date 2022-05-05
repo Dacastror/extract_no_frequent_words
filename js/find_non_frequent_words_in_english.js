@@ -1,21 +1,12 @@
-
-// se debe ejecutar esta función al hacer clic en el botón que permite 
-// ejecutar la busqueda de palabras no frecuentes
-function orderedWords(){ 
-    const text_area = document.getElementById("text_input")
-    const input_text = text_area.value
-    ordered_words = getWordsByFrequecy(corpus, input_text)
-    //console.log(ordered_words)
-}
-
 function getWordsByFrequecy(corpus, input_string){
-    var input_words_list = cleanInput(input_string)
-    var pairs = pairsWordIndex(corpus, input_words_list)
+    let input_words_list = cleanInput(input_string)
+    console.log(input_words_list)
+    let pairs = pairsWordIndex(corpus, input_words_list)
     return sortWords(pairs)
 }
 
 function cleanInput(string){
-    var new_str = " " + string + " "
+    let new_str = " " + string + " "
     new_str = new_str.toLowerCase()
     new_str = new_str.replace(/-\n/g, "")
     new_str = new_str.replace(/(\n-|\n)/g, " ")
@@ -28,14 +19,14 @@ function cleanInput(string){
     new_str = new_str.replace(/( -|- )/g," ")
     new_str = new_str.replace(/  +/g," ")
     new_str = new_str.trim()
-    var output_array = new_str.split(" ")
+    let output_array = new_str.split(" ")
     output_array = [...new Set(output_array)] // remover palabras repetidas
     return output_array
 }
 
 function pairsWordIndex(corpus, input_words_list){
-    var pairs = []; var word = ""; var indice;
-    for(var i = 0; i < input_words_list.length; i++){
+    let pairs = []; let word = ""; let indice;
+    for(let i = 0; i < input_words_list.length; i++){
         word = input_words_list[i]
         indice = corpus.indexOf(word)
         if (indice > -1){
@@ -48,12 +39,9 @@ function pairsWordIndex(corpus, input_words_list){
 function sortWords(pairs){
     pairs.sort(function(first, second) {
         return second[1] - first[1];
-    });
-
-    console.log(pairs)
-
-    sorted_words = []
-    for(var i=0; i<pairs.length; i++){
+    })
+    let sorted_words = []
+    for(let i=0; i<pairs.length; i++){
         sorted_words.push(pairs[i][0])
     }
     return sorted_words
