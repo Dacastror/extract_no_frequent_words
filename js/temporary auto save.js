@@ -13,8 +13,10 @@ document.getElementById(ID_INPUT_TEXT).addEventListener('input', (e) => {
 // recover lost text
 window.addEventListener('DOMContentLoaded', (e) => {
     let text = sessionStorage.getItem(SAVE_STORAGE_NAME)
+    console.log("texto encontrado",text)
     if (text){
         let input_text = document.getElementById(ID_INPUT_TEXT)
         input_text.value = text
+        console.log("entró")
     }
 })
