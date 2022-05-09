@@ -10,7 +10,7 @@ function displayWords() {
     let div_container_list = document.getElementById(ID_LIST_CONT)
     let div_container_list2 = document.getElementById(ID_LIST_CONT_2)
     let div_container_list3 = document.getElementById(ID_LIST_CONT_3)
-    let ol_list_init = '<ul class="card-columns" style="column-count: 3;">'
+    let ol_list_init = "<ul>"
     let ol_list_end = "</ul>"
     let ol_list_center = ""
     let ol_list_center_2 = ""
