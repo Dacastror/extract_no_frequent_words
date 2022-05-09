@@ -6,7 +6,7 @@ function displayWords() {
     let input_words_list = document.getElementById(IN_TEXT).value
     let input_words_array = getWordsByFrequecy(corpus, input_words_list);
     let div_container_list = document.getElementById(ID_LIST_CONT)
-    let ol_list_init = "<ol>"
+    let ol_list_init = '<ol class="card-columns" style="column-count: 3;">'
     let ol_list_end = "</ol>"
     let ol_list_center = ""
     let number_words = input_words_array.length
