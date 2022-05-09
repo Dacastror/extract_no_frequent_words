@@ -1,13 +1,13 @@
 function getWordsByFrequecy(corpus, input_string) {
-    let input_words_list = cleanInput(input_string)
-    // console.log(input_words_list)
-    let pairs = pairsWordIndex(corpus, input_words_list)
+    const input_words_list = cleanInput(input_string)
+    const pairs = pairsWordIndex(corpus, input_words_list)
     return sortWords(pairs)
 }
 
 function cleanInput(string) {
     let new_str = " " + string + " "
     new_str = new_str.toLowerCase()
+    new_str = new_str.replace(/-\n +/g, "")
     new_str = new_str.replace(/-\n/g, "")
     new_str = new_str.replace(/(\n-|\n)/g, " ")
     new_str = new_str.replace(/can('|‘|’)t[^\p{L}]/gu, "can not ")
